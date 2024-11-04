@@ -1,11 +1,11 @@
 # Specify the AWS provider
 provider "aws" {
-  region = "us-west-2"  # Replace with your preferred region
+  region = "us-east-1"  # Replace with your preferred region
 }
 
 # Create an S3 bucket
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "Buck001"  # The bucket name must be globally unique
+  bucket = "mug10"  # The bucket name must be globally unique
   acl    = "private"  # Access control list
 
   tags = {
