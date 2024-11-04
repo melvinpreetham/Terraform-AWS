@@ -1,6 +1,6 @@
 # Provider configuration
 provider "aws" {
-  region = "us-east-1"
+  region = "us-west-2"  # Ensure this is set to your desired region
 }
 
 # Create a VPC (if you don't already have one)
@@ -18,7 +18,7 @@ resource "aws_subnet" "my_subnet" {
   cidr_block = "10.0.1.0/24"
 
   tags = {
-    Name = "MyTerraformSubnet"
+    Name = "MyTerra Subnet"
   }
 }
 
@@ -54,13 +54,13 @@ resource "aws_security_group" "my_sg" {
   }
 }
 
-# Create an EC2 instance and use the existing key pair
+# Create an EC2 instance and use the new key pair and AMI
 resource "aws_instance" "my_instance" {
-  ami           = "ami-0866a3c8686eaeeba"  # Updated AMI ID
+  ami           = "ami-0abcdef12390467890"  # Replace with your new AMI ID
   instance_type = "t2.micro"  # Free-tier eligible
 
-  # Use the existing key pair
-  key_name = "firstnew"  # Reference your existing key pair by name
+  # Use the updated key pair
+  key_name = "catsnrats"  # Replace with your new key pair name
 
   # Attach the security group
   vpc_security_group_ids = [aws_security_group.my_sg.id]
